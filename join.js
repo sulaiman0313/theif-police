@@ -36,12 +36,13 @@
 
 //promise
 
-let complete=false;
-let prom=new Promise(function(resolved,reject){
-    if(complete){
-        resolved("successfull");
-    }else{
-        reject("failed");
-    }
-});
-console.log(prom);
+function prom(complete){
+    return new Promise(function(resolved,reject){
+        if(complete){
+            resolved("successfull");
+        }else{
+            reject("failed");
+        }
+    });
+}
+console.log(prom(true));

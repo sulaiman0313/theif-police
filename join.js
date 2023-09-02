@@ -36,13 +36,69 @@
 
 //promise
 
-function prom(complete){
-    return new Promise(function(resolved,reject){
-        if(complete){
-            resolved("successfull");
+// function prom(complete){
+//     return new Promise(function(resolved,reject){
+//         if(complete){
+//             resolved("successfull");
+//         }else{
+//             reject("failed");
+//         }
+//     });
+// }
+// console.log(prom(true));
+
+
+//promises 2
+
+const flipKart = new Promise((orderAxcepted,orderCancel)=>{
+    let delay=Math.floor(Math.random() * 5)
+
+    if(delay>2){
+        orderCancel("ordercancel");
+    }
+    else{
+        orderAxcepted("accepted");
+    }
+})
+flipKart.then((data)=>{
+    console.log(data)
+
+    return new Promise((res,rej)=>{
+        let delay = Math.floor(Math.random() * 3)
+        if(delay > 1){
+            rej("item is not available")
         }else{
-            reject("failed");
+            res("we are proccessing your order")
+
+            
         }
-    });
-}
-console.log(prom(true));
+
+    })
+    
+})
+.then((data)=>{
+    console.log(data)
+
+    
+    return new Promise((res,rej)=>{
+        let delay = Math.floor(Math.random() * 3)
+        if(delay > 1){
+            rej("out of stock")
+        }else{
+            res("order product")
+
+            
+        }
+
+    }) 
+    
+}).then((data)=>{
+    console.log(data)
+}).catch((data)=>{
+    console.log(data)
+})
+
+.catch((data)=>{
+    console.log(data)
+})
+

@@ -49,7 +49,6 @@
 
 
 //promises 2
-
 const flipKart = new Promise((orderAxcepted,orderCancel)=>{
     let delay=Math.floor(Math.random() * 5)
 
@@ -100,4 +99,5 @@ flipKart.then((data)=>{
 .catch((data)=>{
     console.log(data)
 })
+
 

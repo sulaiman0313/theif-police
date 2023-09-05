@@ -63,7 +63,7 @@ const flipKart = new Promise((orderAxcepted,orderCancel)=>{
 flipKart.then((data)=>{
     console.log(data)
 
-    return new Promise((res,rej)=>{
+   let p2= new Promise((res,rej)=>{
         let delay = Math.floor(Math.random() * 3)
         if(delay > 1){
             rej("item is not available")
@@ -72,15 +72,13 @@ flipKart.then((data)=>{
 
             
         }
-
+       
     })
+    return p2;
     
-})
-.then((data)=>{
+}).then((data)=>{
     console.log(data)
-
-    
-    return new Promise((res,rej)=>{
+    let p3=new Promise((res,rej)=>{
         let delay = Math.floor(Math.random() * 3)
         if(delay > 1){
             rej("out of stock")
@@ -91,6 +89,7 @@ flipKart.then((data)=>{
         }
 
     }) 
+    return p3;
     
 }).then((data)=>{
     console.log(data)

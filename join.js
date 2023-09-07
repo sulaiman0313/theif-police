@@ -49,55 +49,78 @@
 
 
 //promises 2
-const flipKart = new Promise((orderAxcepted,orderCancel)=>{
-    let delay=Math.floor(Math.random() * 5)
+// const flipKart = new Promise((orderAxcepted,orderCancel)=>{
+//     let delay=Math.floor(Math.random() * 5)
 
-    if(delay>2){
-        orderCancel("ordercancel");
-    }
-    else{
-        orderAxcepted("accepted");
-    }
-})
-flipKart.then((data)=>{
-    console.log(data)
+//     if(delay>2){
+//         orderCancel("ordercancel");
+//     }
+//     else{
+//         orderAxcepted("accepted");
+//     }
+// })
+// flipKart.then((data)=>{
+//     console.log(data)
 
-   let p2= new Promise((res,rej)=>{
-        let delay = Math.floor(Math.random() * 3)
-        if(delay > 1){
-            rej("item is not available")
-        }else{
-            res("we are proccessing your order")
+//     new Promise((res,rej)=>{
+//         let delay = Math.floor(Math.random() * 3)
+//         if(delay > 1){
+//             rej("item is not available")
+//         }else{
+//             res("we are proccessing your order")
 
             
-        }
+//         }
        
-    })
-    return p2;
+//     })
+   
     
-}).then((data)=>{
-    console.log(data)
-    let p3=new Promise((res,rej)=>{
-        let delay = Math.floor(Math.random() * 3)
-        if(delay > 1){
-            rej("out of stock")
-        }else{
-            res("order product")
+// }).then((data)=>{
+//     console.log(data)
+//     new Promise((res,rej)=>{
+//         let delay = Math.floor(Math.random() * 3)
+//         if(delay > 1){
+//             rej("out of stock")
+//         }else{
+//             res("order product")
 
             
-        }
+//         }
 
-    }) 
-    return p3;
+//     }) 
+//     return p3;
     
-}).then((data)=>{
-    console.log(data)
-}).catch((data)=>{
-    console.log(data)
-})
+// }).then((data)=>{
+//     console.log(data)
+// }).catch((data)=>{
+//     console.log(data)
+// })
 
-.catch((data)=>{
-    console.log(data)
-})
+// .catch((data)=>{
+//     console.log(data)
+// })
+
+//
+
+let delay=1000
+function coolers(color,delay){
+    return new Promise((res,rej)=>{
+        setTimeout(()=>{
+            if(delay>5000){
+                rej();
+            }
+            else{
+                document.body.style.backgroundColor = color;
+                res();
+            }
+        },delay)
+    })
+}
+coolers("green",delay)
+.then(()=>{return coolers('lightpink',delay)})
+.then(()=>{return coolers('orange',delay)})
+.then(()=>{return coolers('#A1C349',delay)})
+.then(()=>{return coolers('green',delay)})
+.then(()=>{return coolers('pink',delay)})
 
 
